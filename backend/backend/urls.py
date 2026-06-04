@@ -18,7 +18,7 @@ from campaigns.google_auth_views import GoogleOAuthLoginView, GoogleOAuthCallbac
 def api_root(_request):
     return JsonResponse({
         'status': 'ok',
-        'service': 'Lime backend API',
+        'service': 'LeadOrbit backend API',
         'base_path': '/api/v1/',
     })
 
@@ -44,5 +44,4 @@ urlpatterns = [
     path('api/v1/connected-accounts/', ConnectedAccountsListView.as_view(), name='connected_accounts'),
     path('api/v1/', include(router.urls)),
 ]
-
 

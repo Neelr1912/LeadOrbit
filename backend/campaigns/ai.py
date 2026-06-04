@@ -97,7 +97,7 @@ def generate_email_chat_completion(prompt, current_subject='', current_body='', 
         raise ValueError('A prompt is required.')
 
     system_prompt = (
-        'You are Lime AI, an expert outbound email assistant for B2B sales teams. '
+        'You are LeadOrbit AI, an expert outbound email assistant for B2B sales teams. '
         'The user will describe what kind of email they want. '
         'Pay close attention to every detail in the user\'s prompt — company names, '
         'product descriptions, value propositions, tone requests, and any specific '
@@ -145,7 +145,7 @@ def generate_email_chat_completion(prompt, current_subject='', current_body='', 
                     'Authorization': f'Bearer {openrouter_api_key}',
                     'Content-Type': 'application/json',
                     'HTTP-Referer': getattr(settings, 'OPENROUTER_APP_URL', 'http://localhost:8080'),
-                    'X-Title': getattr(settings, 'OPENROUTER_APP_NAME', 'Lime Campaign Builder'),
+                    'X-Title': getattr(settings, 'OPENROUTER_APP_NAME', 'LeadOrbit Campaign Builder'),
                 },
                 json={
                     'model': _get_openrouter_model(),

@@ -1,8 +1,8 @@
-# Lime
+# LeadOrbit
 
-Current branding note: the repo and backend still use `Lime` in a few places, but the frontend UI is mostly branded as `LeadOrbit`.
+Current branding note: the active app is branded as `LeadOrbit`; older planning documents in the repo may still mention the original `Lime` name.
 
-Lime is a multi-tenant outbound outreach MVP built with Django REST Framework and a static HTML/JavaScript frontend. The implemented code supports organization signup, JWT auth, CSV lead import, campaign building, lead enrollment, Gmail sender connection, AI-assisted email drafting, webhook-based engagement tracking, and analytics pages.
+LeadOrbit is a multi-tenant outbound outreach MVP built with Django REST Framework and a static HTML/JavaScript frontend. The implemented code supports organization signup, JWT auth, CSV lead import, campaign building, lead enrollment, Gmail sender connection, AI-assisted email drafting, webhook-based engagement tracking, and analytics pages.
 
 This README is based on the current codebase, not the older planning documents in the repo root.
 
@@ -90,7 +90,7 @@ LAUNCH_IMMEDIATE_PASSES=1
 OPENROUTER_API_KEY=
 OPENROUTER_MODEL=mistralai/mistral-nemo
 OPENROUTER_APP_URL=http://127.0.0.1:8080
-OPENROUTER_APP_NAME=Lime Campaign Builder
+OPENROUTER_APP_NAME=LeadOrbit Campaign Builder
 
 GEMINI_API_KEY=
 
@@ -198,7 +198,7 @@ Current repo state: `27` backend tests pass. The suite covers auth/profile updat
 
 ## Current Caveats
 
-- Branding is inconsistent: the UI mostly says `LeadOrbit`, while parts of the backend and settings still say `Lime`.
+- Some older root planning documents still mention the original `Lime` name, but the active README, backend, and frontend runtime paths use `LeadOrbit`.
 - The settings page shows a Gemini API key field, but it is not persisted from the UI. AI credentials are read from `backend/.env`.
 - The danger-zone buttons in `settings.html` are presentational only right now.
 - [`frontend/src`](frontend/src) and [`backend/config`](backend/config) look like leftover scaffold code and are not part of the main runtime path.

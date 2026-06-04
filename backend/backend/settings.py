@@ -179,7 +179,7 @@ GEMINI_API_KEY = os.getenv('GEMINI_API_KEY', _read_local_env_value('GEMINI_API_K
 OPENROUTER_API_KEY = os.getenv('OPENROUTER_API_KEY', _read_local_env_value('OPENROUTER_API_KEY', ''))
 OPENROUTER_MODEL = os.getenv('OPENROUTER_MODEL', _read_local_env_value('OPENROUTER_MODEL', 'mistralai/mistral-nemo'))
 OPENROUTER_APP_URL = os.getenv('OPENROUTER_APP_URL', _read_local_env_value('OPENROUTER_APP_URL', 'http://localhost:8080'))
-OPENROUTER_APP_NAME = os.getenv('OPENROUTER_APP_NAME', _read_local_env_value('OPENROUTER_APP_NAME', 'Lime Campaign Builder'))
+OPENROUTER_APP_NAME = os.getenv('OPENROUTER_APP_NAME', _read_local_env_value('OPENROUTER_APP_NAME', 'LeadOrbit Campaign Builder'))
 
 # Reply detection toggle (used by Gmail polling task)
 ENABLE_AUTO_REPLY_DETECTION = os.getenv(
