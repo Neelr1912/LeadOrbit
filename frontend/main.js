@@ -36,10 +36,33 @@ function initThemeToggle() {
     });
 }
 
+function initPasswordVisibilityToggle() {
+    const toggles = [
+        { inputId: 'floatingPassword', toggleId: 'floatingPasswordToggle' },
+        { inputId: 'password', toggleId: 'passwordToggle' }
+    ];
+
+    toggles.forEach(({ inputId, toggleId }) => {
+        const input = document.getElementById(inputId);
+        const toggle = document.getElementById(toggleId);
+        if (!input || !toggle) {
+            return;
+        }
+
+        toggle.addEventListener('click', () => {
+            const show = input.type === 'password';
+            input.type = show ? 'text' : 'password';
+            toggle.textContent = show ? '🙈' : '👁';
+            toggle.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+        });
+    });
+}
+
 applyTheme(getTheme());
 
 document.addEventListener('DOMContentLoaded', async () => {
     initThemeToggle();
+    initPasswordVisibilityToggle();
 
     if (window.location.pathname.includes('login.html') || window.location.pathname.includes('register.html')) {
         return;
