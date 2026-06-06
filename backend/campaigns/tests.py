@@ -1056,7 +1056,7 @@ class CampaignWorkflowTests(APITestCase):
         response = self.client.get('/api/v1/analytics/dashboard/')
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
-    def test_unsubscribe_view_marks_lead_unsubscribed(self):
+    def test_unsubscribe_get_shows_confirmation_without_updating_lead(self):
         lead = Lead.objects.create(
             organization=self.organization,
             email='unsubscribe@acme.test',
@@ -1064,6 +1064,21 @@ class CampaignWorkflowTests(APITestCase):
         token = generate_unsubscribe_token(lead.id)
 
         response = self.client.get(f'/api/v1/unsubscribe/{lead.id}/{token}/')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertIn('Confirm unsubscribe', response.content.decode('utf-8'))
+        self.assertIn('method="post"', response.content.decode('utf-8'))
+
+        lead.refresh_from_db()
+        self.assertFalse(lead.global_unsubscribe)
+
+    def test_unsubscribe_post_marks_lead_unsubscribed(self):
+        lead = Lead.objects.create(
+            organization=self.organization,
+            email='unsubscribe@acme.test',
+        )
+        token = generate_unsubscribe_token(lead.id)
+
+        response = self.client.post(f'/api/v1/unsubscribe/{lead.id}/{token}/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertIn('You have been unsubscribed', response.content.decode('utf-8'))
 
