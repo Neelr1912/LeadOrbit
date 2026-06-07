@@ -1096,10 +1096,44 @@ body.auth-page {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
+/* Sidebar overlay */
+#sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1040;
+}
+
+#sidebar-overlay.active {
+    display: block;
+}
 
 @media (max-width: 991px) {
+    .app-shell {
+        display: block;
+    }
+
     .sidebar {
-        display: none;
+        position: fixed;
+        top: 0;
+        left: -260px;
+        height: 100vh;
+        z-index: 1050;
+        transition: left 0.28s ease;
+        width: 250px;
+    }
+
+    .sidebar.sidebar-open {
+        left: 0;
+    }
+
+    .main-area {
+        width: 100%;
+    }
+
+    .btn:not(.btn-close) {
+        min-height: 44px;
     }
 }
 
@@ -1116,6 +1150,23 @@ body.auth-page {
     .search-wrap {
         min-width: 100%;
         max-width: 100%;
+    }
+
+    .top-header .d-flex {
+        flex-wrap: wrap;
+    }
+
+    .top-header .search-wrap {
+        order: 3;
+        width: 100%;
+    }
+    
+    .page-title {
+        font-size: 1.1rem;
+    }
+
+    .kpi-value {
+        font-size: 1.2rem;
     }
 }
 

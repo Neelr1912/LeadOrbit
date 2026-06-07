@@ -157,6 +157,22 @@ document.addEventListener('DOMContentLoaded', async () => {
             window.location.href = '/login.html';
         });
     }
+    // Responsive sidebar toggle
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const sidebar = document.querySelector('.sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+
+    if (hamburgerBtn && sidebar && overlay) {
+        hamburgerBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('sidebar-open');
+            overlay.classList.toggle('active');
+        });
+
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('sidebar-open');
+            overlay.classList.remove('active');
+        });
+    }
 });
 
 // ==========================================
