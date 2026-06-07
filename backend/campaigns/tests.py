@@ -1010,6 +1010,18 @@ class CampaignWorkflowTests(APITestCase):
         self.assertTrue(response.data.get('fallback'))
         self.assertIn('SUBJECT:', response.data.get('generated', ''))
 
+    @override_settings(GEMINI_API_KEY='')
+    def test_ai_generate_requires_authentication(self):
+        self.client.force_authenticate(user=None)
+
+        response = self.client.post(
+            '/api/v1/campaigns/ai-generate/',
+            {'prompt': 'Write an outreach email'},
+            format='json',
+        )
+
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+
     def test_dashboard_analytics_isolates_data_by_tenant(self):
         org2 = Organization.objects.create(name='Other Corp')
         other_user = User.objects.create_user(

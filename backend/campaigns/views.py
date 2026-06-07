@@ -355,7 +355,7 @@ class AIGenerateView(APIView):
     POST /api/v1/campaigns/ai-generate/
     Generate email content using the configured LLM provider for the campaign builder.
     """
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
 
     def post(self, request, *args, **kwargs):
         prompt = (request.data.get('prompt') or '').strip()
