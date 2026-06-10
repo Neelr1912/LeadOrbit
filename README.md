@@ -19,6 +19,14 @@ This README is based on the current codebase, not the older planning documents i
 - [Current Caveats](#current-caveats)
 - [Integration Notes](#integration-notes)
 
+## Code of Conduct
+
+This project adheres to the Contributor Covenant [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you agree to abide by its terms.
+
+## Contributing
+
+... existing contributing content ...
+
 ## What Works Today
 
 - JWT auth with organization creation during signup
